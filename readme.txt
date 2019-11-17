@@ -1,8 +1,9 @@
 +++++++++++++++++
 			
-    GlancingMeter v0.6	
+    GlancingMeter v0.7	
               by 
-          Terrordar
+          dagochen @ Lucifron (DE-PVP)
+	based on 1.12 Version created by Terrordar
 			
 +++++++++++++++++
 
@@ -32,6 +33,11 @@ The loss value in the top-left corner is the main information of GlancingMeter. 
 
 
 ### VERSION HISTORY ###
+
+V0.7
+- reworked for the 1.13.2 client
+- removed libs
+- now uses CombatLogGetCurrentEventInfo
 
 V0.6
 
