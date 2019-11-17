@@ -249,9 +249,10 @@ function GlancingMeterOnEvent(self, event)
 
 	if( paused == false ) then
 		if event == "COMBAT_LOG_EVENT_UNFILTERED" then
-			local time, subEvent, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags = CombatLogGetCurrentEventInfo() 
+			local timestamp, subEvent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags = CombatLogGetCurrentEventInfo() 
+			local playerGUID = UnitGUID("player")
 			
-			if (subEvent == "SWING_DAMAGE") then
+			if (subEvent == "SWING_DAMAGE" and (sourceGUID == playerGUID)) then
 				local amount, overkill, school, resisted, blocked, absorbed, critical, glancing, crushing, isOffHand = select(12,  CombatLogGetCurrentEventInfo())
 				swingCount = swingCount + 1
 				if (critical) then
@@ -268,12 +269,12 @@ function GlancingMeterOnEvent(self, event)
 				end
 			end
 
-			if (subEvent == "SPELL_DAMAGE") then
+			if (subEvent == "SPELL_DAMAGE" and (sourceGUID == playerGUID)) then
 				local amount = select(15,  CombatLogGetCurrentEventInfo())
 				otherDamage = otherDamage + amount; 
 			end
 
-			if (subEvent == "SWING_MISSED") then
+			if (subEvent == "SWING_MISSED" and (sourceGUID == playerGUID)) then
 				local missType = select(12,  CombatLogGetCurrentEventInfo())
 				if (missType == "MISS") then
 					swingCount = swingCount + 1
