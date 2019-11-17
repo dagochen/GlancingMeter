@@ -1,0 +1,8 @@
+## Interface: 11302
+## Title: GlancingMeter
+## Notes: Collects data about glancing blows and white dmg loss
+## Author: dagochen @ Lucifron(DE-PVP) (previously by Terrordar)
+## Notes: Automatically tracks for you!  Turns off when not needed!  Smart!
+## X-Category: Attack Table Stats Tracking
+
+glancingmeter.xml

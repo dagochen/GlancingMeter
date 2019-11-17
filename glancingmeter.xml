@@ -1,0 +1,498 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Script file="glancingmeter.lua"/>
+
+<!-- ********************************************************************************************* -->
+  
+<Frame name="GlancingMeterMainFrame" toplevel="true" frameStrata="DIALOG" parent="UIParent" hidden="false" movable="true" enableMouse="true">
+
+    <Size>
+          <AbsDimension x="230" y="180"/>
+    </Size>      
+    <Anchors>
+                <Anchor point="CENTER"/>
+    </Anchors>
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+                <TileSize>
+                        <AbsValue val="16"/>
+                </TileSize>
+                <EdgeSize>
+                        <AbsValue val="16"/>
+                </EdgeSize>
+                <BackgroundInsets>
+                        <AbsInset left="5" right="5" top="5" bottom="5"/>
+                </BackgroundInsets>
+    </Backdrop>  
+   
+    <Layers>
+      <Layer level="ARTWORK">
+		
+                <FontString name="$parent_PausedText" inherits="GameFontNormalSmall" text="PAUSED" hidden="true">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-25" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="0" b="0" a="1" />
+
+                </FontString>
+
+			    <FontString name="$parent_LossLabelText" inherits="GameFontNormalSmall" text="Loss:">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-10" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+
+                </FontString>
+
+			    <FontString name="$parent_LossText" inherits="GameFontNormalSmall" text="Count">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="50" y="-10" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+
+                </FontString>
+
+			    <FontString name="$parent_CountLabelText" inherits="GameFontNormalSmall" text="Count">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="50" y="-40" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+
+                </FontString>
+
+				<FontString name="$parent_PercentLabelText" inherits="GameFontNormalSmall" text="%">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="105" y="-40" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                     
+                </FontString>
+
+				<FontString name="$parent_AvgLabelText" inherits="GameFontNormalSmall" text="Avg">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="135" y="-40" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                     
+                </FontString>
+
+				<FontString name="$parent_TotLabelText" inherits="GameFontNormalSmall" text="Tot">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="175" y="-40" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                     
+                </FontString>
+
+			    <FontString name="$parent_HitLabelText" inherits="GameFontNormalSmall" text="Hit">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-55" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_GlanceLabelText" inherits="GameFontNormalSmall" text="Glanc">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-70" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_CritLabelText" inherits="GameFontNormalSmall" text="Crit">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-85" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_MissLabelText" inherits="GameFontNormalSmall" text="Miss">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-100" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_TotDmgLabelText" inherits="GameFontNormalSmall" text="Tot">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-115" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_HitCountText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="4">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="60" y="-55" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_HitPercentText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="0.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="100" y="-55" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_HitAvgText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="100.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="135" y="-55" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_HitTotText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="2000">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="180" y="-55" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_GlancCountText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="4">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="60" y="-70" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_GlancPercentText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="0.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="100" y="-70" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_GlancAvgText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="100.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="135" y="-70" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_GlancTotText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="2000">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="180" y="-70" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_CritCountText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="4">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="60" y="-85" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_CritPercentText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="0.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="100" y="-85" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_CritAvgText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="100.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="135" y="-85" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_CritTotText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="2000">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="180" y="-85" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_MissCountText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="4">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="60" y="-100" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_MissPercentText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="0.0">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="100" y="-100" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_TotCountText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="4">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="60" y="-115" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+			    <FontString name="$parent_TotTotText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="2000">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="180" y="-115" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_OtherDmgLabelText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="Other">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-130" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_OtherDmgText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="333">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="180" y="-130" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+			   		
+<!-- ****************************************************************************************** -->
+
+			    <FontString name="$parent_GlanceOnHitLabelText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="Glance / Hit">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-160" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+                </FontString>
+
+			    <FontString name="$parent_GlanceOnHitText" inherits="GameFontNormalSmall" setAllPoints="true" justifyH="right" text="111.33">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="90" y="-160" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+                </FontString>
+			  
+	   
+
+<!-- ****************************************************************************************** -->
+<!-- ****************************************************************************************** -->
+
+
+      </Layer>
+   </Layers>
+    
+   <Frames>
+    <Button name="GlancingMeterPauseButton" inherits="UIPanelButtonTemplate" text="P" id="4">
+                 <Size>
+                   <AbsDimension x="15" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-70" y="-8" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterPause() </OnClick>
+					  <OnLoad>  self.tooltip = "Pause/Unpause"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>    
+    <Button name="GlancingMeterResetButton" inherits="UIPanelButtonTemplate" text="R" id="4">
+                 <Size>
+                   <AbsDimension x="15" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-50" y="-8" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterReset() </OnClick>
+					  <OnLoad>  self.tooltip = "Reset data"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+    <Button name="GlancingMeterHideButton" inherits="UIPanelButtonTemplate" text="M" id="4">
+                 <Size>
+                   <AbsDimension x="15" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-30" y="-8" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                   <OnClick> GlancingMeterMinimize() </OnClick>
+ 				   <OnLoad>  self.tooltip = "Minimize/Maximize"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+     </Button>
+
+    <Button name="GlancingMeterCloseButton" inherits="UIPanelButtonTemplate" text="X" id="4">
+        <Size>
+            <AbsDimension x="15" y="15"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPRIGHT">
+                <Offset>
+                    <AbsDimension x="-10" y="-8" />
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Scripts>
+            <OnClick> GlancingMeterClose() </OnClick>
+            <OnLoad> self.tooltip = "Close"; </OnLoad>
+            <OnEnter> 
+                GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+				GameTooltip:SetText(self.tooltip);
+            </OnEnter>           
+            <OnLeave> GameTooltip:Hide(); </OnLeave>
+        </Scripts>
+    </Button>
+    </Frames>
+
+    <Scripts>
+        <OnDragStart> self:StartMoving(); 			 </OnDragStart>
+        <OnDragStop>  self:StopMovingOrSizing();    </OnDragStop>
+        <OnEvent> 
+            GlancingMeterOnEvent(self, event, ...);
+        </OnEvent>
+        <OnLoad> 
+            GlancingMeterOnLoad(self);
+         </OnLoad>
+   </Scripts>   
+
+ </Frame>
+
+</Ui>
