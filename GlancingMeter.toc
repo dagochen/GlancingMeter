@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Title: GlancingMeter
 ## Notes: Collects data about glancing blows and white dmg loss
 ## Author: dagochen @ Lucifron(DE-PVP) (previously by Terrordar)
