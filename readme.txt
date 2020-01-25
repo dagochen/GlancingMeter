@@ -1,6 +1,6 @@
 +++++++++++++++++
 			
-    GlancingMeter v0.7	
+    GlancingMeter v0.8	
               by 
           dagochen @ Lucifron (DE-PVP)
 	based on 1.12 Version created by Terrordar
@@ -33,6 +33,12 @@ The loss value in the top-left corner is the main information of GlancingMeter. 
 
 
 ### VERSION HISTORY ###
+
+V0.8
+- mainhand and offhand are tracked seperated now
+- added parry 
+- added dodge
+- tracking now depends on level difference
 
 V0.7
 - reworked for the 1.13.2 client
