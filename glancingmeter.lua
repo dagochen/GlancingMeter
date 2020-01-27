@@ -9,7 +9,7 @@
 --- GLOBAL VARS
 ----------------------------------------------------------------------
 
-GLANCINGMETER_VERSION = "0.7"
+GLANCINGMETER_VERSION = "0.8"
 
 
  swingCount = {}
@@ -24,22 +24,11 @@ GLANCINGMETER_VERSION = "0.7"
  dodgeCount = {}
  parryCount = {}
 
- OHswingCount = {}
- OHhitCount = {}
- OHglanceCount = {}
- OHcritCount = {}
- OHmissCount = {}
- OHhitDamage = {}
- OHglanceDamage = {}
- OHcritDamage = {}
- OHotherDamage = {}
- OHdodgeCount = {}
- OHparryCount = {}
 
 
 local totalWhiteDmg = 0
 local delta = 0
-local mainhand = true
+local mainhand = 0
 
 local paused = false
 local minimized = false
@@ -72,14 +61,15 @@ function GlancingMeterClose()
 end
 
 function GlancingMeterMainhand()
-	mainhand = not mainhand
+	mainhand = (mainhand + 1) % 2
 	GlancingMeterUpdateFrame()
 end
 
 
+
+
 function GlancingMeterPlus()
-	playerLevel = UnitLevel("player")
-	if ((63 - playerLevel) > (delta + 1)) then
+	if (320 > (delta + 1)) then
 		delta = delta + 1
 	else
 		delta = delta 
@@ -88,9 +78,8 @@ function GlancingMeterPlus()
 end
 
 function GlancingMeterMinus()
-	playerLevel = UnitLevel("player")
-	if (playerLevel * -1) < (delta -1) then
-		delta = delta -1
+	if (-320 < (delta - 1)) then
+		delta = delta - 1
 	else
 		delta = delta 
 	end
@@ -111,18 +100,16 @@ function GlancingMeterPause()
 end
 
 function GlancingMeterUpdateFrame()
-	
-	if (mainhand) then
-		local index = delta
 
-		totalWhiteDmg = glanceDamage[index] + hitDamage[index] + critDamage[index]
-		avgHit = GlancingMeterMyDiv(hitDamage[index], hitCount[index])
-		avgCrit = GlancingMeterMyDiv(critDamage[index], critCount[index])
-		avgGlance = GlancingMeterMyDiv(glanceDamage[index], glanceCount[index])
+		local ind = delta
+		totalWhiteDmg = glanceDamage[ind][mainhand] + hitDamage[ind][mainhand] + critDamage[ind][mainhand]
+		avgHit = GlancingMeterMyDiv(hitDamage[ind][mainhand], hitCount[ind][mainhand])
+		avgCrit = GlancingMeterMyDiv(critDamage[ind][mainhand], critCount[ind][mainhand])
+		avgGlance = GlancingMeterMyDiv(glanceDamage[ind][mainhand], glanceCount[ind][mainhand])
 
-		whiteDmgLost = (avgHit - avgGlance) * glanceCount[index]
+		whiteDmgLost = (avgHit - avgGlance) * glanceCount[ind][mainhand]
 
-		lostOnTotal = GlancingMeterMyDiv(100 * whiteDmgLost, ( whiteDmgLost + otherDamage[index] + totalWhiteDmg))
+		lostOnTotal = GlancingMeterMyDiv(100 * whiteDmgLost, ( whiteDmgLost + otherDamage[ind][mainhand] + totalWhiteDmg))
 		if (lostOnTotal < 0.0) then 
 			lostOnTotal = 0.0
 		end
@@ -131,43 +118,43 @@ function GlancingMeterUpdateFrame()
 
 		if(minimized == false) then
 
-			GlancingMeterMainFrame_HitCountText:SetText(hitCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*hitCount[index], swingCount[index]))
+			GlancingMeterMainFrame_HitCountText:SetText(hitCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*hitCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_HitPercentText:SetText(tempString)
 			tempString = string.format("%.1f", avgHit)
 			GlancingMeterMainFrame_HitAvgText:SetText(tempString)
-			GlancingMeterMainFrame_HitTotText:SetText(hitDamage[index])
+			GlancingMeterMainFrame_HitTotText:SetText(hitDamage[ind][mainhand])
 
-			GlancingMeterMainFrame_GlancCountText:SetText(glanceCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*glanceCount[index], swingCount[index]))
+			GlancingMeterMainFrame_GlancCountText:SetText(glanceCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*glanceCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_GlancPercentText:SetText(tempString)
 			tempString = string.format("%.1f", avgGlance)
 			GlancingMeterMainFrame_GlancAvgText:SetText(tempString)
-			GlancingMeterMainFrame_GlancTotText:SetText(glanceDamage[index])
+			GlancingMeterMainFrame_GlancTotText:SetText(glanceDamage[ind][mainhand])
 
-			GlancingMeterMainFrame_CritCountText:SetText(critCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*critCount[index], swingCount[index]))
+			GlancingMeterMainFrame_CritCountText:SetText(critCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*critCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_CritPercentText:SetText(tempString)
 			tempString = string.format("%.1f", avgCrit)
 			GlancingMeterMainFrame_CritAvgText:SetText(tempString)
-			GlancingMeterMainFrame_CritTotText:SetText(critDamage[index])
+			GlancingMeterMainFrame_CritTotText:SetText(critDamage[ind][mainhand])
 
-			GlancingMeterMainFrame_MissCountText:SetText(missCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*missCount[index], swingCount[index]))
+			GlancingMeterMainFrame_MissCountText:SetText(missCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*missCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_MissPercentText:SetText(tempString)
 
-			GlancingMeterMainFrame_DodgeCountText:SetText(dodgeCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*dodgeCount[index], swingCount[index]))
+			GlancingMeterMainFrame_DodgeCountText:SetText(dodgeCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*dodgeCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_DodgePercentText:SetText(tempString)
 			
-			GlancingMeterMainFrame_ParryCountText:SetText(parryCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*parryCount[index], swingCount[index]))
+			GlancingMeterMainFrame_ParryCountText:SetText(parryCount[ind][mainhand])
+			tempString = string.format("%.1f", GlancingMeterMyDiv(100*parryCount[ind][mainhand], swingCount[ind][mainhand]))
 			GlancingMeterMainFrame_ParryPercentText:SetText(tempString)
 
-			GlancingMeterMainFrame_TotCountText:SetText(swingCount[index])
+			GlancingMeterMainFrame_TotCountText:SetText(swingCount[ind][mainhand])
 			GlancingMeterMainFrame_TotTotText:SetText(totalWhiteDmg)
 
-			GlancingMeterMainFrame_OtherDmgText:SetText(otherDamage[index])
+			GlancingMeterMainFrame_OtherDmgText:SetText(otherDamage[ind][mainhand])
 
 			tempString = string.format("%.1f", glanceOnHit)
 			GlancingMeterMainFrame_GlanceOnHitText:SetText(tempString)
@@ -178,76 +165,6 @@ function GlancingMeterUpdateFrame()
 		GlancingMeterMainFrame_LossText:SetText(tempString)
 
 		
-
-	else
-		
-		local index = delta
-
-		totalWhiteDmg = OHglanceDamage[index] + OHhitDamage[index] + OHcritDamage[index]
-		avgHit = GlancingMeterMyDiv(OHhitDamage[index], OHhitCount[index])
-		avgCrit = GlancingMeterMyDiv(OHcritDamage[index], OHcritCount[index])
-		avgGlance = GlancingMeterMyDiv(OHglanceDamage[index], OHglanceCount[index])
-
-		whiteDmgLost = (avgHit - avgGlance) * OHglanceCount[index]
-
-		lostOnTotal = GlancingMeterMyDiv(100 * whiteDmgLost, ( whiteDmgLost + OHotherDamage[index] + totalWhiteDmg))
-		if (lostOnTotal < 0.0) then 
-			lostOnTotal = 0.0
-		end
-		
-		glanceOnHit = GlancingMeterMyDiv(100 * avgGlance, avgHit)
-
-		if(minimized == false) then
-
-			GlancingMeterMainFrame_HitCountText:SetText(OHhitCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHhitCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_HitPercentText:SetText(tempString)
-			tempString = string.format("%.1f", avgHit)
-			GlancingMeterMainFrame_HitAvgText:SetText(tempString)
-			GlancingMeterMainFrame_HitTotText:SetText(OHhitDamage[index])
-
-			GlancingMeterMainFrame_GlancCountText:SetText(OHglanceCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHglanceCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_GlancPercentText:SetText(tempString)
-			tempString = string.format("%.1f", avgGlance)
-			GlancingMeterMainFrame_GlancAvgText:SetText(tempString)
-			GlancingMeterMainFrame_GlancTotText:SetText(OHglanceDamage[index])
-
-			GlancingMeterMainFrame_CritCountText:SetText(OHcritCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHcritCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_CritPercentText:SetText(tempString)
-			tempString = string.format("%.1f", avgCrit)
-			GlancingMeterMainFrame_CritAvgText:SetText(tempString)
-			GlancingMeterMainFrame_CritTotText:SetText(OHcritDamage[index])
-
-			GlancingMeterMainFrame_MissCountText:SetText(OHmissCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHmissCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_MissPercentText:SetText(tempString)
-
-			GlancingMeterMainFrame_DodgeCountText:SetText(OHdodgeCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHdodgeCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_DodgePercentText:SetText(tempString)
-			
-			GlancingMeterMainFrame_ParryCountText:SetText(OHparryCount[index])
-			tempString = string.format("%.1f", GlancingMeterMyDiv(100*OHparryCount[index], OHswingCount[index]))
-			GlancingMeterMainFrame_ParryPercentText:SetText(tempString)
-
-			GlancingMeterMainFrame_TotCountText:SetText(OHswingCount[index])
-			GlancingMeterMainFrame_TotTotText:SetText(totalWhiteDmg)
-
-			GlancingMeterMainFrame_OtherDmgText:SetText(OHotherDamage[index])
-
-			tempString = string.format("%.1f", glanceOnHit)
-			GlancingMeterMainFrame_GlanceOnHitText:SetText(tempString)
-
-		end
-
-		tempString = string.format("%.2f%%", lostOnTotal)
-		GlancingMeterMainFrame_LossText:SetText(tempString)
-
-		
-	
-	end
 
 	tempString = delta
 	if (delta > 0) then
@@ -255,14 +172,12 @@ function GlancingMeterUpdateFrame()
 	end
 	
 	GlancingMeterMainFrame_DeltaText:SetText(tempString)
-
 	
-	if (mainhand) then
+	if (mainhand == 0) then
 		tempString = "MH"
 	else
 		tempString = "OH"
 	end
-	
 	GlancingMeterMainFrame_MainhandText:SetText(tempString)
 
 
@@ -270,32 +185,35 @@ end
 
 function GlancingMeterReset()
 	
-	for i=-59, 62 do
-		hitCount[i] = 0
-		glanceCount[i] = 0
-		critCount[i] = 0
-		missCount[i] = 0
-		hitDamage[i] = 0
-		glanceDamage[i] = 0
-		critDamage[i] = 0
-		swingCount[i] = 0
-		dodgeCount[i] = 0
-		parryCount[i] = 0
-		otherDamage[i] = 0
+	for i=-320, 320 do
+		hitCount[i] = {}
+		glanceCount[i] = {}
+		critCount[i] = {}
+		missCount[i] = {}
+		hitDamage[i] = {}
+		glanceDamage[i] = {}
+		critDamage[i] = {}
+		swingCount[i] = {}
+		dodgeCount[i] = {}
+		parryCount[i] = {}
+		otherDamage[i] = {}
 
-		OHhitCount[i] = 0
-		OHglanceCount[i] = 0
-		OHcritCount[i] = 0
-		OHmissCount[i] = 0
-		OHhitDamage[i] = 0
-		OHglanceDamage[i] = 0
-		OHcritDamage[i] = 0
-		OHswingCount[i] = 0
-		OHdodgeCount[i] = 0
-		OHparryCount[i] = 0
-		OHotherDamage[i] = 0
-	  end
+		for j = 0,1 do
+			hitCount[i][j] = 0
+			glanceCount[i][j] = 0
+			critCount[i][j] = 0
+			missCount[i][j] = 0
+			hitDamage[i][j] = 0
+			glanceDamage[i][j] = 0
+			critDamage[i][j] = 0
+			swingCount[i][j] = 0
+			dodgeCount[i][j] = 0
+			parryCount[i][j] = 0
+			otherDamage[i][j] = 0
+		end
+	end
 	delta = 0
+	mainhand = 0
 	GlancingMeterUpdateFrame()
 	print("GlancingMeter data reset")
 
@@ -434,78 +352,63 @@ function GlancingMeterOnEvent(self, event)
 	if( paused == false ) then
 		if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 			local timestamp, subEvent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags = CombatLogGetCurrentEventInfo() 
+			local feralForm = GetShapeshiftForm(false);
+			local _, _, classIndex = UnitClass("player");
 			local playerGUID = UnitGUID("player")
-			local index = UnitLevel("target") - UnitLevel("player")
+			local baseDefense = (UnitLevel("target") * 5);
+			local mainBase, mainMod, offBase, offMod = UnitAttackBothHands("player");
+			local mainHandWeaponSkill = mainBase + mainMod
+			local offHandWeaponSkill = offBase + offMod
+			if (classIndex == 11 and feralForm > 0) then
+				mainHandWeaponSkill = UnitLevel("player") * 5
+			end
+			local mh = 0
+			local ind = baseDefense - mainHandWeaponSkill
 			if (subEvent == "SWING_DAMAGE" and (sourceGUID == playerGUID)) then
 				local amount, overkill, school, resisted, blocked, absorbed, critical, glancing, crushing, isOffHand = select(12,  CombatLogGetCurrentEventInfo())
 				if (isOffHand) then
-					OHswingCount[index] = OHswingCount[index]  + 1
-				else
-					swingCount[index] = swingCount[index] + 1
+					mh = 1
+					ind = baseDefense - offHandWeaponSkill
 				end
+				swingCount[ind][mh] = swingCount[ind][mh] + 1
+				
 				if (critical) then
-					if (isOffHand) then
-						OHcritDamage[index] = OHcritDamage[index] + amount
-						OHcritCount[index] = OHcritCount[index] + 1
-					else
-						critDamage[index] = critDamage[index] + amount
-						critCount[index] = critCount[index] + 1
-					end
+					critDamage[ind][mh] = critDamage[ind][mh] + amount
+					critCount[ind][mh] = critCount[ind][mh] + 1
 				end
 				if (glancing) then
-					if (isOffHand) then
-						OHglanceDamage[index] = OHglanceDamage[index] + amount
-						OHglanceCount[index] = OHglanceCount[index] + 1			
-					else
-						glanceDamage[index] = glanceDamage[index] + amount
-						glanceCount[index] = glanceCount[index] + 1
-					end
+					glanceDamage[ind][mh] = glanceDamage[ind][mh] + amount
+					glanceCount[ind][mh] = glanceCount[ind][mh] + 1
 				end
 				if (not glancing and not critical) then
-					if (isOffHand) then
-						OHhitCount[index] = OHhitCount[index] + 1
-						OHhitDamage[index] = OHhitDamage[index] + amount
-					else
-						hitCount[index] = hitCount[index] + 1
-						hitDamage[index] = hitDamage[index] + amount
-					end
+					hitCount[ind][mh] = hitCount[ind][mh] + 1
+					hitDamage[ind][mh] = hitDamage[ind][mh] + amount
 				end
 			end
 
 			if (subEvent == "SPELL_DAMAGE" and (sourceGUID == playerGUID)) then
 				local amount = select(15,  CombatLogGetCurrentEventInfo())
-				otherDamage[index] = otherDamage[index] + amount
-				OHotherDamage[index] = OHotherDamage[index] + amount
+				otherDamage[ind][0] = otherDamage[ind][0] + amount
+				otherDamage[ind][1] = otherDamage[ind][1] + amount
 			end
 
 			if (subEvent == "SWING_MISSED" and (sourceGUID == playerGUID)) then
 				local missType, isOffHand = select(12,  CombatLogGetCurrentEventInfo())
+				if (isOffHand) then
+					mh = 1
+					ind = baseDefense - offHandWeaponSkill
+				end
 				if (missType == "MISS") then
-					if (isOffHand) then
-						OHswingCount[index] = OHswingCount[index] + 1
-						OHmissCount[index] = OHmissCount[index] + 1 
-					else
-						swingCount[index] = swingCount[index] + 1
-						missCount[index] = missCount[index] + 1 
-					end
+					swingCount[ind][mh] = swingCount[ind][mh] + 1
+					missCount[ind][mh] = missCount[ind][mh] + 1 
 				end	
 				if (missType == "DODGE") then
-					if (isOffHand) then
-						OHswingCount[index] = swingCount[index] + 1
-						OHdodgeCount[index] = dodgeCount[index] + 1					
-					else
-						swingCount[index] = swingCount[index] + 1
-						dodgeCount[index] = dodgeCount[index] + 1 
-					end
+					swingCount[ind][mh] = swingCount[ind][mh] + 1
+					dodgeCount[ind][mh] = dodgeCount[ind][mh] + 1 
 				end
 				if (missType == "PARRY") then
-					if (isOffHand) then
-						OHswingCount[index] = swingCount[index] + 1
-						OHparryCount[index] = parryCount[index] + 1
-					else
-						swingCount[index] = swingCount[index] + 1
-						parryCount[index] = parryCount[index] + 1 
-					end
+					swingCount[ind][mh] = swingCount[ind][mh] + 1
+					parryCount[ind][mh] = parryCount[ind][mh] + 1 
 				end
 			end
 

@@ -23,6 +23,9 @@ http://www.wowwiki.com/index.php?title=Formulas:Weapon_Skill
 
 The loss value in the top-left corner is the main information of GlancingMeter. It is a percentage value that indicates how much glancing blows affect your damage output. The lower this value is, the less your damage output is affected by glancing blows. In other words a low value of dmg loss indicates that your damage is at full potential. A value of 0.0% means that your are getting no glancing blows or glancing blows are not reducing your damage.
 
+Explaination: 
+delta: dealta means the difference in your attackskill (depends on level and weapon) and the enemy defense skill (level * 5)
+
 ### SLASH COMMANDS ###
 
 /gm or /glancingmeter
@@ -33,6 +36,11 @@ The loss value in the top-left corner is the main information of GlancingMeter. 
 
 
 ### VERSION HISTORY ###
+
+V0.81
+- now uses difference in deapon- and defense-skill of target and player instead of level difference
+- now saves data over several sessions
+- added feral calculation
 
 V0.8
 - mainhand and offhand are tracked seperated now

@@ -61,7 +61,7 @@
 
                 </FontString>
 
-                 <FontString name="$parent_DeltaLabelText" inherits="GameFontNormalSmall" text="Against:">
+                 <FontString name="$parent_DeltaLabelText" inherits="GameFontNormalSmall" text="Delta:">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
@@ -545,7 +545,7 @@
                  </Anchors>
                  <Scripts>
                       <OnClick> GlancingMeterMinus() </OnClick>
-					  <OnLoad>  self.tooltip = "-1 Level"; 		</OnLoad>
+					  <OnLoad>  self.tooltip = "-1 WS"; 		</OnLoad>
                       <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
 								GameTooltip:SetText(self.tooltip);
 	                  </OnEnter>           
@@ -565,7 +565,7 @@
                  </Anchors>
                  <Scripts>
                       <OnClick> GlancingMeterPlus() </OnClick>
-					  <OnLoad>  self.tooltip = "+1 Level"; 		</OnLoad>
+					  <OnLoad>  self.tooltip = "+1 WS"; 		</OnLoad>
                       <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
 								GameTooltip:SetText(self.tooltip);
 	                  </OnEnter>           
