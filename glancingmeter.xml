@@ -6,7 +6,7 @@
 <Frame name="GlancingMeterMainFrame" toplevel="true" frameStrata="DIALOG" parent="UIParent" hidden="false" movable="true" enableMouse="true">
 
     <Size>
-          <AbsDimension x="250" y="200"/>
+          <AbsDimension x="220" y="240"/>
     </Size>      
     <Anchors>
                 <Anchor point="CENTER"/>
@@ -30,7 +30,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-25" />
+                                                <AbsDimension x="90" y="-10" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -49,7 +49,7 @@
 
                 </FontString>
 
-			    <FontString name="$parent_LossText" inherits="GameFontNormalSmall" text="Count">
+			    <FontString name="$parent_LossText" inherits="GameFontNormalSmall" text="Loss">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
@@ -61,22 +61,22 @@
 
                 </FontString>
 
-                 <FontString name="$parent_DeltaLabelText" inherits="GameFontNormalSmall" text="Delta:">
+                 <FontString name="$parent_LevelLabelText" inherits="GameFontNormalSmall" text="Level:">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-20" />
+                                                <AbsDimension x="10" y="-25" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
 
                 </FontString>
 
-			    <FontString name="$parent_DeltaText" inherits="GameFontNormalSmall" text="1">
+			    <FontString name="$parent_WSText" inherits="GameFontNormalSmall" text="1">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="50" y="-20" />
+                                                <AbsDimension x="50" y="-40" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -84,11 +84,34 @@
 
                 </FontString>
 
-                 <FontString name="$parent_MainhandLabelText" inherits="GameFontNormalSmall" text="MH/OH:">
+                 <FontString name="$parent_WSLabelText" inherits="GameFontNormalSmall" text="Skill:">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-30" />
+                                                <AbsDimension x="10" y="-40" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+
+                </FontString>
+
+			    <FontString name="$parent_LevelText" inherits="GameFontNormalSmall" text="1">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="50" y="-25" />
+                                       </Offset>
+                            </Anchor>
+                        </Anchors>
+					    <Color r="1" g="1" b="1" a="1" />
+
+                </FontString>
+
+                 <FontString name="$parent_MainhandLabelText" inherits="GameFontNormalSmall" text="Weapon:">
+                        <Anchors>
+                            <Anchor point="TOPLEFT">
+                                       <Offset>
+                                                <AbsDimension x="10" y="-55" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -99,7 +122,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="50" y="-30" />
+                                                <AbsDimension x="50" y="-55" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -111,7 +134,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="50" y="-40" />
+                                                <AbsDimension x="50" y="-80" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -122,7 +145,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="105" y="-40" />
+                                                <AbsDimension x="105" y="-80" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -133,18 +156,18 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="135" y="-40" />
+                                                <AbsDimension x="135" y="-80" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
                      
                 </FontString>
 
-				<FontString name="$parent_TotLabelText" inherits="GameFontNormalSmall" text="Tot">
+				<FontString name="$parent_TotLabelText" inherits="GameFontNormalSmall" text="Total">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="175" y="-40" />
+                                                <AbsDimension x="175" y="-80" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -155,7 +178,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-55" />
+                                                <AbsDimension x="10" y="-95" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -165,7 +188,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-70" />
+                                                <AbsDimension x="10" y="-110" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -175,7 +198,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-85" />
+                                                <AbsDimension x="10" y="-125" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -185,7 +208,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-100" />
+                                                <AbsDimension x="10" y="-140" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -195,7 +218,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-115" />
+                                                <AbsDimension x="10" y="-155" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -204,16 +227,16 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-130" />
+                                                <AbsDimension x="10" y="-170" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
                 </FontString>
-			    <FontString name="$parent_TotDmgLabelText" inherits="GameFontNormalSmall" text="Tot">
+			    <FontString name="$parent_TotDmgLabelText" inherits="GameFontNormalSmall" text="Total">
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-145" />
+                                                <AbsDimension x="10" y="-185" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -225,7 +248,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-55" />
+                                                <AbsDimension x="60" y="-95" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -236,7 +259,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-55" />
+                                                <AbsDimension x="100" y="-95" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -247,7 +270,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="135" y="-55" />
+                                                <AbsDimension x="135" y="-95" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -258,7 +281,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="180" y="-55" />
+                                                <AbsDimension x="180" y="-95" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -271,7 +294,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-70" />
+                                                <AbsDimension x="60" y="-110" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -282,7 +305,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-70" />
+                                                <AbsDimension x="100" y="-110" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -293,7 +316,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="135" y="-70" />
+                                                <AbsDimension x="135" y="-110" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -304,7 +327,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="180" y="-70" />
+                                                <AbsDimension x="180" y="-110" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -317,7 +340,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-85" />
+                                                <AbsDimension x="60" y="-125" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -328,7 +351,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-85" />
+                                                <AbsDimension x="100" y="-125" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -339,7 +362,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="135" y="-85" />
+                                                <AbsDimension x="135" y="-125" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -350,7 +373,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="180" y="-85" />
+                                                <AbsDimension x="180" y="-125" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -363,7 +386,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-100" />
+                                                <AbsDimension x="60" y="-140" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -374,7 +397,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-100" />
+                                                <AbsDimension x="100" y="-140" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -388,7 +411,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-115" />
+                                                <AbsDimension x="60" y="-155" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -399,7 +422,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-115" />
+                                                <AbsDimension x="100" y="-155" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -413,7 +436,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-130" />
+                                                <AbsDimension x="60" y="-170" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -424,7 +447,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="100" y="-130" />
+                                                <AbsDimension x="100" y="-170" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -438,7 +461,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="60" y="-145" />
+                                                <AbsDimension x="60" y="-185" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -449,7 +472,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="180" y="-145" />
+                                                <AbsDimension x="180" y="-185" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -462,7 +485,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-160" />
+                                                <AbsDimension x="10" y="-200" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -472,7 +495,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="180" y="-160" />
+                                                <AbsDimension x="180" y="-200" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -485,7 +508,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="10" y="-175" />
+                                                <AbsDimension x="10" y="-215" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -495,7 +518,7 @@
                         <Anchors>
                             <Anchor point="TOPLEFT">
                                        <Offset>
-                                                <AbsDimension x="90" y="-175" />
+                                                <AbsDimension x="90" y="-215" />
                                        </Offset>
                             </Anchor>
                         </Anchors>
@@ -512,39 +535,123 @@
    </Layers>
     
    <Frames>
-      <Button name="GlancingMeterMainhandButton" inherits="UIPanelButtonTemplate" text="MH" id="4">
+      <Button name="$parent_GlancingMeterMainhandButton" inherits="UIPanelButtonTemplate" text="MH" id="4">
                  <Size>
-                   <AbsDimension x="15" y="15"/>
+                   <AbsDimension x="35" y="15"/>
                  </Size>
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-130" y="-8" />
+                                                <AbsDimension x="-80" y="-55" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
                  <Scripts>
                       <OnClick> GlancingMeterMainhand() </OnClick>
-					  <OnLoad>  self.tooltip = "Toggle MH/OH"; 		</OnLoad>
+					  <OnLoad>  self.tooltip = "Show Mainhand only"; 		</OnLoad>
                       <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
 								GameTooltip:SetText(self.tooltip);
 	                  </OnEnter>           
                      <OnLeave>   GameTooltip:Hide();             </OnLeave>
                  </Scripts>
     </Button>
-   <Button name="GlancingMeterMinusButton" inherits="UIPanelButtonTemplate" text="-" id="4">
+
+    <Button name="$parent_GlancingMeterOffhandButton" inherits="UIPanelButtonTemplate" text="OH" id="4">
                  <Size>
-                   <AbsDimension x="15" y="15"/>
+                   <AbsDimension x="35" y="15"/>
                  </Size>
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-110" y="-8" />
+                                                <AbsDimension x="-45" y="-55" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
                  <Scripts>
-                      <OnClick> GlancingMeterMinus() </OnClick>
+                      <OnClick> GlancingMeterOffhand() </OnClick>
+					  <OnLoad>  self.tooltip = "Show Offhand only"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+
+   
+   <Button name="$parent_GlancingMeterPlusLevelButton" inherits="UIPanelButtonTemplate" text="+ LVL" id="4">
+                 <Size>
+                   <AbsDimension x="35" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-45" y="-25" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterLevelPlus() </OnClick>
+					  <OnLoad>  self.tooltip = "+1 LVL"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+
+     <Button name="$parent_GlancingMeterLevelBOSSButton" inherits="UIPanelButtonTemplate" text="Boss" id="4">
+                 <Size>
+                   <AbsDimension x="35" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-10" y="-25" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterLevelBoss() </OnClick>
+					  <OnLoad>  self.tooltip = "Boss LVL"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+    <Button name="$parent_GlancingMeterMinusLevelButton" inherits="UIPanelButtonTemplate" text="- LVL" id="4">
+                 <Size>
+                   <AbsDimension x="35" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-80" y="-25" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterLevelMinus() </OnClick>
+					  <OnLoad>  self.tooltip = "-1 LVL"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+    <Button name="$parent_GlancingMeterMinusSkillButton" inherits="UIPanelButtonTemplate" text="- WS" id="4">
+                 <Size>
+                   <AbsDimension x="35" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-80" y="-40" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterSkillMinus() </OnClick>
 					  <OnLoad>  self.tooltip = "-1 WS"; 		</OnLoad>
                       <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
 								GameTooltip:SetText(self.tooltip);
@@ -552,20 +659,41 @@
                      <OnLeave>   GameTooltip:Hide();             </OnLeave>
                  </Scripts>
     </Button>
-    <Button name="GlancingMeterPlusButton" inherits="UIPanelButtonTemplate" text="+" id="4">
+    <Button name="$parent_GlancingMeterPlusSkillButton" inherits="UIPanelButtonTemplate" text="+ WS" id="4">
                  <Size>
-                   <AbsDimension x="15" y="15"/>
+                   <AbsDimension x="35" y="15"/>
                  </Size>
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-90" y="-8" />
+                                                <AbsDimension x="-45" y="-40" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
                  <Scripts>
-                      <OnClick> GlancingMeterPlus() </OnClick>
+                      <OnClick> GlancingMeterSkillPlus() </OnClick>
 					  <OnLoad>  self.tooltip = "+1 WS"; 		</OnLoad>
+                      <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
+								GameTooltip:SetText(self.tooltip);
+	                  </OnEnter>           
+                     <OnLeave>   GameTooltip:Hide();             </OnLeave>
+                 </Scripts>
+    </Button>
+
+    <Button name="$parent_GlancingMeterMYSkillButton" inherits="UIPanelButtonTemplate" text="MY" id="4">
+                 <Size>
+                   <AbsDimension x="35" y="15"/>
+                 </Size>
+                 <Anchors>
+                          <Anchor point="TOPRIGHT">
+                                     <Offset>
+                                                <AbsDimension x="-10" y="-40" />
+                                     </Offset>
+                          </Anchor>
+                 </Anchors>
+                 <Scripts>
+                      <OnClick> GlancingMeterSkillMY() </OnClick>
+					  <OnLoad>  self.tooltip = "My current WeaponSkill"; 		</OnLoad>
                       <OnEnter> GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT"); 
 								GameTooltip:SetText(self.tooltip);
 	                  </OnEnter>           
@@ -579,7 +707,7 @@
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-70" y="-8" />
+                                                <AbsDimension x="-55" y="-8" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
@@ -599,7 +727,7 @@
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-50" y="-8" />
+                                                <AbsDimension x="-40" y="-8" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
@@ -619,7 +747,7 @@
                  <Anchors>
                           <Anchor point="TOPRIGHT">
                                      <Offset>
-                                                <AbsDimension x="-30" y="-8" />
+                                                <AbsDimension x="-25" y="-8" />
                                      </Offset>
                           </Anchor>
                  </Anchors>
