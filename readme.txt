@@ -1,6 +1,6 @@
 +++++++++++++++++
 			
-    GlancingMeter v0.8	
+    GlancingMeter v1.0	
               by 
           dagochen @ Lucifron (DE-PVP)
 	based on 1.12 Version created by Terrordar
