@@ -281,17 +281,22 @@ function GlancingMeterUpdateFrame()
 	tempString = string.format("%.2f%%", lostOnTotal)
 	GlancingMeterMainFrame_LossText:SetText(tempString)
 
-	tempString = "LVL: " .. level
+	if (level <= 63) then
+		tempString = " " .. level
+	else
+		tempString = " Boss"
+	end
+		
 	GlancingMeterMainFrame_LevelText:SetText(tempString)
 	
-	tempString = "WS: " .. ws
+	tempString = " " .. ws
 	GlancingMeterMainFrame_WSText:SetText(tempString)
 	
 	if (mainhand == 0) then
-		tempString = "Mainhand"
+		tempString = " Mainhand"
 	end
 	if (mainhand == 1) then
-		tempString = "Offhand"
+		tempString = " Offhand"
 	end
 
 	GlancingMeterMainFrame_MainhandText:SetText(tempString)

@@ -109,7 +109,7 @@
 
                  <FontString name="$parent_MainhandLabelText" inherits="GameFontNormalSmall" text="Weapon:">
                         <Anchors>
-                            <Anchor point="TOPLEFT">
+                            <Anchor point="TOPLEFT">    
                                        <Offset>
                                                 <AbsDimension x="10" y="-55" />
                                        </Offset>
