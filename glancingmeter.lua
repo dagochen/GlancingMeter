@@ -527,7 +527,7 @@ function GlancingMeterOnEvent(self, event)
 			if (isPlayer) then
 				return
 			end
-			
+
 			local mainBase, mainMod, offBase, offMod = UnitAttackBothHands("player");
 			local mainHandWeaponSkill = mainBase + mainMod
 			local offHandWeaponSkill = offBase + offMod
@@ -568,7 +568,6 @@ function GlancingMeterOnEvent(self, event)
 			end
 
 			if (subEvent == "SWING_MISSED" and (sourceGUID == playerGUID)) then
-				print(ind)
 				local missType, isOffHand = select(12,  CombatLogGetCurrentEventInfo())
 				if (isOffHand) then
 					mh = 1
