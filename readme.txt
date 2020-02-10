@@ -1,6 +1,6 @@
 +++++++++++++++++
 			
-    GlancingMeter v0.8	
+    GlancingMeter v1.0	
               by 
           dagochen @ Lucifron (DE-PVP)
 	based on 1.12 Version created by Terrordar
@@ -36,6 +36,13 @@ delta: dealta means the difference in your attackskill (depends on level and wea
 
 
 ### VERSION HISTORY ###
+
+v1.0 (FINAL)
+- cleaned up UI
+- reworked calculation and tracking
+- now uses seperated weaponskill and level of target
+- ignores pvp data which compromised statistics before
+- added button to jump to boss fights, which are also tracked seperated from lvl 63 NPCs
 
 V0.81
 - now uses difference in deapon- and defense-skill of target and player instead of level difference

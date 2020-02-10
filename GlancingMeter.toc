@@ -4,5 +4,5 @@
 ## Author: dagochen @ Heartstriker(DE-PVP) (previously by Terrordar)
 ## Notes: Automatically tracks for you!  Turns off when not needed!  Smart!
 ## X-Category: Attack Table Stats Tracking
-## SavedVariablesPerCharacter: swingCount, hitCount, glanceCount, critCount, missCount, hitDamage, glanceDamage, critDamage, otherDamage, totalWhiteDmg, dodgeCount, parryCount
+## SavedVariablesPerCharacter: swingCount, hitCount, glanceCount, critCount, missCount, hitDamage, glanceDamage, critDamage, otherDamage, dodgeCount, parryCount
 glancingmeter.xml
